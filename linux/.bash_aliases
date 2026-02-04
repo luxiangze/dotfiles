@@ -10,9 +10,8 @@ alias u='clear; cd ../; pwd; ls -lhGgo'
 alias d='clear; cd -; ls -lhGgo'
 
 # My favorite ls aliases
-alias ls="ls -1p --color=auto"
-alias l="ls -lhGgo"
-alias ll="ls -lh"
+alias ls="ls --color=auto"
+alias lh="ls -lh"
 alias la="ls -lhGgoA"
 alias lt="ls -lhGgotr"
 alias lS="ls -lhGgoSr"
@@ -66,6 +65,6 @@ alias showpath='echo $PATH | tr ":" "\n" | nl'
 alias mdpdf="pandoc -s -V geometry:margin=1in -V documentclass:article -V fontsize=12pt"
 
 # proxy enable
-alias proxyon='export all_proxy=socks5://10.133.42.5:7891;export http_proxy=http://10.133.42.5:7890;export https_proxy=http://10.133.42.5:7890'
+alias proxyon='export all_proxy=socks5://100.81.85.27:7891;export http_proxy=http://100.81.85.27:7890;export https_proxy=http://100.81.85.27:7890'
 alias proxyoff='unset all_proxy http_proxy https_proxy'
 alias proxystatus='echo -e "HTTP Proxy : "$http_proxy"\nHTTPS Proxy: "$https_proxy"\nAll Proxy  : "$all_proxy'
