@@ -64,7 +64,40 @@ alias showpath='echo $PATH | tr ":" "\n" | nl'
 # USAGE: mdpdf document.md document.md.pdf
 alias mdpdf="pandoc -s -V geometry:margin=1in -V documentclass:article -V fontsize=12pt"
 
-# proxy enable
-alias proxyon='export all_proxy=socks5://100.81.85.27:7891;export http_proxy=http://100.81.85.27:7890;export https_proxy=http://100.81.85.27:7890'
-alias proxyoff='unset all_proxy http_proxy https_proxy'
-alias proxystatus='echo -e "HTTP Proxy : "$http_proxy"\nHTTPS Proxy: "$https_proxy"\nAll Proxy  : "$all_proxy'
+# ========== 代理配置 ==========
+# 代理地址
+PROXY_HTTP="http://100.81.85.27:7890"
+PROXY_HTTPS="http://100.81.85.27:7890"
+PROXY_SOCKS5="socks5://100.81.85.27:7891"
+
+# 默认启用代理（注释掉可禁用）
+ENABLE_PROXY=true
+
+if [ "$ENABLE_PROXY" = true ]; then
+    export HTTP_PROXY=$PROXY_HTTP
+    export HTTPS_PROXY=$PROXY_HTTPS
+    export http_proxy=$PROXY_HTTP
+    export https_proxy=$PROXY_HTTPS
+    export ALL_PROXY=$PROXY_SOCKS5
+    export all_proxy=$PROXY_SOCKS5
+    export NO_PROXY=localhost,127.0.0.1,*.local
+    export no_proxy=localhost,127.0.0.1,*.local
+fi
+
+# 动态切换函数
+toggle_proxy() {
+    if [ -z "$HTTP_PROXY" ]; then
+        export HTTP_PROXY=$PROXY_HTTP
+        export HTTPS_PROXY=$PROXY_HTTPS
+        export http_proxy=$PROXY_HTTP
+        export https_proxy=$PROXY_HTTPS
+        export ALL_PROXY=$PROXY_SOCKS5
+        export all_proxy=$PROXY_SOCKS5
+        echo "✓ 代理已启用"
+    else
+        unset HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
+        unset ALL_PROXY all_proxy
+        echo "✗ 代理已禁用"
+    fi
+}
+
