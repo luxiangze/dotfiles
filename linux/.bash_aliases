@@ -68,3 +68,6 @@ alias mdpdf="pandoc -s -V geometry:margin=1in -V documentclass:article -V fontsi
 alias proxyon='export all_proxy=socks5://100.81.85.27:7891;export http_proxy=http://100.81.85.27:7890;export https_proxy=http://100.81.85.27:7890'
 alias proxyoff='unset all_proxy http_proxy https_proxy'
 alias proxystatus='echo -e "HTTP Proxy : "$http_proxy"\nHTTPS Proxy: "$https_proxy"\nAll Proxy  : "$all_proxy'
+
+#ccds
+alias ccds='ccds gh:luxiangze/cookiecutter-data-science'
