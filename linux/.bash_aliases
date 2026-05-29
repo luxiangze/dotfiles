@@ -69,9 +69,9 @@ alias ccds='ccds gh:luxiangze/cookiecutter-data-science'
 
 # ========== 代理配置 ==========
 # 代理地址
-PROXY_HTTP="http://100.81.85.27:7890"
-PROXY_HTTPS="http://100.81.85.27:7890"
-PROXY_SOCKS5="socks5://100.81.85.27:7891"
+PROXY_HTTP="http://10.133.41.37:7890"
+PROXY_HTTPS="http://10.133.41.37:7890"
+PROXY_SOCKS5="socks5://10.133.41.37:7891"
 
 # 默认启用代理（注释掉可禁用）
 ENABLE_PROXY=true
